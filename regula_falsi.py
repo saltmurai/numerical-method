@@ -8,7 +8,7 @@ def f(f_x, val):
     return f_x.evalf(subs={x: val})
 
 
-def falsePosition(f_x, x0, x1, e):
+def falsePosition(f_x, x0, x1, e=0.00001):
     step = 1
     diff_f = sym.diff(f_x, x)
     ivl = sym.Interval (x0, x1)

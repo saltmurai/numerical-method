@@ -1,9 +1,9 @@
 import sympy as sym
 from tabulate import tabulate
 
-interval = sym.Interval(-11, -10)
+interval = sym.Interval(-0.1, 0.0)
 x = sym.Symbol("x")
-f_x = x**4 - 3*x**2 + 75*x - 10000
+f_x = 6*x**2 + 9*x**2 + 15*x +1
 
 def f(f_x, val):
     return f_x.evalf(subs={x: val})
@@ -14,7 +14,7 @@ def min(x, y):
 def max(x, y):
     return abs(x) if abs(x) > abs(y) else abs(y)
 
-def newton(f_x, x0, epsilon, max_iter):
+def newton(f_x, x0, epsilon = 0.00001, max_iter = 10):
     xn = x0
     Dfxn = sym.diff(f_x, x)
     ddf = sym.diff(f_x, x, x)
@@ -53,7 +53,7 @@ def newton(f_x, x0, epsilon, max_iter):
 
 
 def main():
-    newton(f_x, -11, 0.00001, 10)
+    newton(f_x, 0)
 
 if __name__ == '__main__':
     main()
