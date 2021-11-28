@@ -1,7 +1,7 @@
 import numpy as np
 import sympy as sp
 
-def gauss_jordan(x, y, verbose=0):
+def gj(x, y, verbose=0):
     m, n = x.shape
     augmented_mat = np.zeros(shape=(m, n + 1))
     augmented_mat[:m, :n] = x
@@ -30,7 +30,7 @@ def gauss_jordan(x, y, verbose=0):
         print(augmented_mat)
     return augmented_mat[:, n]
 
-def jacobi(a, b, x0 = np.array([0,0,0]), tol = 0.00001, iter_max = 10):
+def ji(a, b, x0 = np.array([0,0,0]), tol = 0.00001, iter_max = 10):
     """
     Jacobi method: solve Ax = b given an initial approximation x0
     Parameters:
@@ -62,7 +62,7 @@ def jacobi(a, b, x0 = np.array([0,0,0]), tol = 0.00001, iter_max = 10):
 
     return [x, i]
 
-def gauss_seidel(a, b, x0 = np.array([0,0,0]), tol = 0.00001, iter_max = 10):
+def gs(a, b, x0 = np.array([0,0,0]), tol = 0.00001, iter_max = 10):
     """
     Gauss-Seidel method: solve Ax = b given an initial approximation x0
     Parameters:
@@ -92,7 +92,7 @@ def gauss_seidel(a, b, x0 = np.array([0,0,0]), tol = 0.00001, iter_max = 10):
 
     return [x, i]
 
-def gauss_jordan2():
+def gj2():
     m = sp.Matrix([[1, -1, 2, -1],
            [2, -1, 3, -3],
            [1,1,1, 0],
@@ -101,13 +101,3 @@ def gauss_jordan2():
     m_rref, pivots = m.rref() # Compute reduced row echelon form (rref).
 
     print(m_rref, pivots)
-
-def main():
-    a = np.array([[1, 1, 0.2], [0.3, 2, 2], [0.5, 0.1, 3]])
-    b = np.array([1,7, 2])
-    x = np.array([0, 0, 0])
-    sol = jacobi(a, b, iter_max=16)
-    print(sol)
-
-if __name__ == '__main__':
-    main()

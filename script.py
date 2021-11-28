@@ -6,7 +6,7 @@ def eval(f, val):
     return f.evalf(subs={x: val})
 
 
-def chia_doi(f, a, b):
+def bi(f, a, b):
     lst_c = []
     lst_e = []
     a = 0
@@ -33,7 +33,7 @@ def f(f_x, val):
     return f_x.evalf(subs={x: val})
 
 
-def falsePosition(f_x, x0, x1, e=0.0001):
+def fp(f_x, x0, x1, e=0.0001):
     step = 1
     diff_f = sym.diff(f_x, x)
     ivl = sym.Interval (x0, x1)
@@ -78,7 +78,7 @@ def min(x, y):
 def max(x, y):
     return abs(x) if abs(x) > abs(y) else abs(y)
 
-def newton(f_x, x0, a, b,  epsilon = 0.00001, max_iter = 10):
+def nton(f_x, x0, a, b,  epsilon = 0.00001, max_iter = 10):
     xn = x0
     interval = sym.Interval(a, b)
     Dfxn = sym.diff(f_x, x)
