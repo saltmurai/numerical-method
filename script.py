@@ -17,7 +17,7 @@ def bi(f, a, b):
         c = (a + b) / 2
         lst_c.append(float(c))
         f_c = eval(f, c)
-        e = abs(b - a) / (2 ** (i))
+        e = abs(b - a) / (2 ** (i + 1))
         lst_e.append(float(e))
         if f_c * f_a < 0:
             b = c
